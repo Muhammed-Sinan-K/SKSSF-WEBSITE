@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasbih Counter | SKSSF Valicode Unit</title>
+  </head>
+  <body>
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="/" class="logo">
+          <svg class="skssf-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="27" height="20" fill="var(--color-flag-blue)"/>
+            <path d="M11 6.5c-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2c.8 0 1.5-.3 2-.8-.3.1-.6.2-1 .2-1.8 0-3.2-1.4-3.2-3.2 0-1 .5-1.9 1.3-2.4-.4-.2-.9-.3-1.5-.3z" fill="var(--color-flag-white)"/>
+            <polygon points="16,5.5 16.5,7 18.2,7 16.9,8 17.4,9.5 16,8.5 14.6,9.5 15.1,8 13.8,7 15.5,7" fill="var(--color-flag-white)"/>
+            <rect x="27" y="0" width="33" height="20" fill="var(--color-flag-white)"/>
+            <g fill="#111111">
+              <rect x="36" y="8" width="2" height="9"/>
+              <path d="M37 5.5l-1.5 2.5h3z"/>
+              <rect x="35" y="16" width="4" height="1"/>
+              <path d="M41 17a4.5 4.5 0 0 1 9 0z"/>
+              <rect x="45" y="10" width="1" height="3"/>
+              <circle cx="45.5" cy="9.5" r="1"/>
+            </g>
+            <rect x="0" y="20" width="60" height="20" fill="var(--color-flag-green)"/>
+            <text x="30" y="34" fill="var(--color-flag-white)" font-family="'Outfit', sans-serif" font-size="10" font-weight="900" letter-spacing="0.5" text-anchor="middle">SKSSF</text>
+          </svg>
+          SKSSF
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+        <nav class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">About Us</a>
+          <a href="/activities.html">Activities</a>
+          <a href="/news.html">News</a>
+          <a href="/events.html">Events</a>
+          <a href="/quran.html">Quran</a>
+          <a href="/tasbih.html" class="active">Tasbih</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-header pattern-bg">
+        <div class="container animate-on-scroll">
+          <h1>Tasbih Counter</h1>
+          <p>Keep track of your daily Dhikr, praises, and prayers in real-time.</p>
+        </div>
+      </div>
+
+      <section class="py-section">
+        <div class="container">
+          <div class="counter-layout" style="max-width: 900px; margin: 0 auto;">
+            <div class="counter-settings">
+              <h3>Counter Settings</h3>
+              <div class="form-group mt-4">
+                <label for="dhikr-preset">Select Dhikr</label>
+                <select id="dhikr-preset" class="form-control">
+                  <option value="SubhanAllah">SubhanAllah (سبحان الله)</option>
+                  <option value="Alhamdulillah">Alhamdulillah (الحمد لله)</option>
+                  <option value="AllahuAkbar">Allahu Akbar (الله أكبر)</option>
+                  <option value="Astaghfirullah">Astaghfirullah (أستغفر الله)</option>
+                  <option value="LaIlahaIllallah">La ilaha illallah (لا إله إلا الله)</option>
+                  <option value="Custom">Custom Dhikr</option>
+                </select>
+              </div>
+              <div class="form-group" id="custom-dhikr-group" style="display: none;">
+                <label for="custom-dhikr-input">Custom Dhikr Text</label>
+                <input type="text" id="custom-dhikr-input" placeholder="Type your dhikr here..." class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="counter-target">Target Count</label>
+                <input type="number" id="counter-target" value="33" min="1" class="form-control" />
+              </div>
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="sound-enabled" checked />
+                <label for="sound-enabled">Enable Click Sound</label>
+              </div>
+              <button id="reset-counter-btn" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Reset Counter</button>
+            </div>
+
+            <div class="counter-display-panel">
+              <div class="dhikr-display-text" id="active-dhikr-text">SubhanAllah</div>
+              <div class="counter-circle-outer" id="counter-click-area">
+                <div class="counter-circle-inner">
+                  <span id="counter-value">0</span>
+                  <span class="counter-label">Tap to Count</span>
+                </div>
+              </div>
+              <div class="counter-progress-bar">
+                <div class="counter-progress-fill" id="counter-progress"></div>
+              </div>
+              <div class="counter-target-display">Target: <span id="target-value">33</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 SKSSF Valicode Unit. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/tasbih.js"></script>
+  </body>
+</html>

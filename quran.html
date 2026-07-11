@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quran | SKSSF Valicode Unit</title>
+  </head>
+  <body>
+    <!-- Header Navigation -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="/" class="logo">
+          <svg class="skssf-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="27" height="20" fill="var(--color-flag-blue)"/>
+            <path d="M11 6.5c-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2c.8 0 1.5-.3 2-.8-.3.1-.6.2-1 .2-1.8 0-3.2-1.4-3.2-3.2 0-1 .5-1.9 1.3-2.4-.4-.2-.9-.3-1.5-.3z" fill="var(--color-flag-white)"/>
+            <polygon points="16,5.5 16.5,7 18.2,7 16.9,8 17.4,9.5 16,8.5 14.6,9.5 15.1,8 13.8,7 15.5,7" fill="var(--color-flag-white)"/>
+            <rect x="27" y="0" width="33" height="20" fill="var(--color-flag-white)"/>
+            <g fill="#111111">
+              <rect x="36" y="8" width="2" height="9"/>
+              <path d="M37 5.5l-1.5 2.5h3z"/>
+              <rect x="35" y="16" width="4" height="1"/>
+              <path d="M41 17a4.5 4.5 0 0 1 9 0z"/>
+              <rect x="45" y="10" width="1" height="3"/>
+              <circle cx="45.5" cy="9.5" r="1"/>
+            </g>
+            <rect x="0" y="20" width="60" height="20" fill="var(--color-flag-green)"/>
+            <text x="30" y="34" fill="var(--color-flag-white)" font-family="'Outfit', sans-serif" font-size="10" font-weight="900" letter-spacing="0.5" text-anchor="middle">SKSSF</text>
+          </svg>
+          SKSSF
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+        <nav class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">About Us</a>
+          <a href="/activities.html">Activities</a>
+          <a href="/news.html">News</a>
+          <a href="/events.html">Events</a>
+          <a href="/quran.html" class="active">Quran</a>
+          <a href="/tasbih.html">Tasbih</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-header pattern-bg">
+        <div class="container animate-on-scroll">
+          <h1>The Holy Quran</h1>
+          <p>Select a Surah from the dropdown list below to start reading.</p>
+        </div>
+      </div>
+
+      <section class="py-section">
+        <div class="container">
+          <!-- Surah Selector Dropdown (Pickup from list model) -->
+          <div class="quran-selector-container" style="text-align: center; margin-bottom: 3.5rem;">
+            <label for="surah-select" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; display: block; color: var(--color-primary-dark);">Choose a Surah:</label>
+            <select id="surah-select" class="form-control" style="max-width: 500px; margin: 0 auto; display: block; font-size: 1.2rem; padding: 0.85rem 1.5rem; border-radius: var(--radius-md); border: 2px solid var(--color-primary-light); background-color: white; box-shadow: var(--shadow-sm); cursor: pointer; color: var(--color-text-dark);">
+              <option value="" disabled selected>Loading Surah list...</option>
+            </select>
+          </div>
+
+          <!-- Quran Reading Panel (Displays directly on page below selector) -->
+          <div id="surah-reader" class="surah-reader-panel" style="display: none; box-shadow: var(--shadow-lg); border: 1px solid #eee; background: white; padding: 3rem 2rem; border-radius: var(--radius-lg); max-width: 900px; margin: 0 auto;">
+            <div class="surah-header-info">
+              <h2 id="reader-surah-title" style="font-size: 2.25rem; color: var(--color-primary-dark); margin-bottom: 0.5rem;">Surah Name</h2>
+              <p id="reader-surah-meta" style="color: var(--color-text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">Meccan • 7 Verses</p>
+              <div class="bismillah-container" id="bismillah-text" style="font-family: 'Amiri', 'Scheherazade New', serif; font-size: 2.5rem; color: var(--color-primary-dark); margin-top: 1.5rem; text-align: center;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            </div>
+            <div id="verses-container" class="verses-list" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem;">
+              <!-- Verses load here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2026 SKSSF Valicode Unit. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/quran.js"></script>
+  </body>
+</html>
