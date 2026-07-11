@@ -1,0 +1,8 @@
+{
+  "appId": "com.skssf.valicode",
+  "appName": "SKSSF Valicode",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
