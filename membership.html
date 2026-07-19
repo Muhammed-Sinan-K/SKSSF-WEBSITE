@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      if (localStorage.getItem('skssf_logged_in') !== 'true') {
+        window.location.replace('/login.html');
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Membership | SKSSF Valicode Unit</title>
@@ -38,6 +43,7 @@
           <a href="/quran.html">Quran</a>
           <a href="/tasbih.html">Tasbih</a>
           <a href="/contact.html">Contact</a>
+          <a onclick="localStorage.removeItem('skssf_logged_in'); window.location.replace('/login.html');" class="logout-btn" style="cursor: pointer;">Logout</a>
         </nav>
       </div>
     </header>

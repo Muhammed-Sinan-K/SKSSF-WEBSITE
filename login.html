@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | SKSSF Valicode Unit</title>
+  </head>
+  <body class="login-body">
+    <!-- Animated background bubbles -->
+    <div class="login-bg-animations">
+      <div class="bubble bubble-1"></div>
+      <div class="bubble bubble-2"></div>
+      <div class="bubble bubble-3"></div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-wrapper">
+      <div class="login-card" id="login-card">
+        <!-- Logo Header -->
+        <div class="login-header">
+          <svg class="login-logo-svg" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="27" height="20" fill="#1377b2"/>
+            <path d="M11 6.5c-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2c.8 0 1.5-.3 2-.8-.3.1-.6.2-1 .2-1.8 0-3.2-1.4-3.2-3.2 0-1 .5-1.9 1.3-2.4-.4-.2-.9-.3-1.5-.3z" fill="#ffffff"/>
+            <polygon points="16,5.5 16.5,7 18.2,7 16.9,8 17.4,9.5 16,8.5 14.6,9.5 15.1,8 13.8,7 15.5,7" fill="#ffffff"/>
+            <rect x="27" y="0" width="33" height="20" fill="#ffffff"/>
+            <g fill="#111111">
+              <rect x="36" y="8" width="2" height="9"/>
+              <path d="M37 5.5l-1.5 2.5h3z"/>
+              <rect x="35" y="16" width="4" height="1"/>
+              <path d="M41 17a4.5 4.5 0 0 1 9 0z"/>
+              <rect x="45" y="10" width="1" height="3"/>
+              <circle cx="45.5" cy="9.5" r="1"/>
+            </g>
+            <rect x="0" y="20" width="60" height="20" fill="#008000"/>
+            <text x="30" y="34" fill="#ffffff" font-family="'Outfit', sans-serif" font-size="10" font-weight="900" letter-spacing="0.5" text-anchor="middle">SKSSF</text>
+          </svg>
+          <h2>SKSSF Valicode</h2>
+          <p>Portal Access Gateway</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+          <div class="form-group-login">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username..." required autocomplete="off" />
+          </div>
+
+          <div class="form-group-login">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password..." required />
+          </div>
+
+          <!-- Error message display -->
+          <div id="error-message" class="login-error-box" style="display: none;">
+            ⚠️ Invalid Username or Password. Please try again.
+          </div>
+
+          <button type="submit" class="btn btn-login-submit">
+            <span class="btn-text">Authenticate</span>
+            <span class="spinner" style="display: none;"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/src/login.js"></script>
+  </body>
+</html>

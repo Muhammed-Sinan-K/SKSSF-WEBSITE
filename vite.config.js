@@ -15,6 +15,7 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         quran: resolve(__dirname, 'quran.html'),
         tasbih: resolve(__dirname, 'tasbih.html'),
+        login: resolve(__dirname, 'login.html'),
       },
     },
   },
