@@ -1,23 +1,23 @@
 import './style.css';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('login-form');
-  const loginCard = document.getElementById('login-card');
-  const loginFormContainer = document.getElementById('login-form-container');
-  const successScreen = document.getElementById('success-screen');
-  const usernameInput = document.getElementById('username');
-  const passwordInput = document.getElementById('password');
-  const errorMessage = document.getElementById('error-message');
-  const submitBtn = document.querySelector('.btn-login-submit');
-  const btnText = submitBtn.querySelector('.btn-text');
-  const spinner = submitBtn.querySelector('.spinner');
+// We run the code directly because module scripts run after the DOM is ready
+const loginForm = document.getElementById('login-form');
+const loginCard = document.getElementById('login-card');
+const loginFormContainer = document.getElementById('login-form-container');
+const successScreen = document.getElementById('success-screen');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const errorMessage = document.getElementById('error-message');
+const submitBtn = document.querySelector('.btn-login-submit');
+const btnText = submitBtn.querySelector('.btn-text');
+const spinner = submitBtn.querySelector('.spinner');
 
-  // If already logged in, redirect directly to index.html
-  if (localStorage.getItem('skssf_logged_in') === 'true') {
-    window.location.replace('/index.html');
-    return;
-  }
+// If already logged in, redirect directly to index.html
+if (localStorage.getItem('skssf_logged_in') === 'true') {
+  window.location.replace('/index.html');
+}
 
+if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -46,9 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
           
           // Trigger progress fill
           const progressFill = document.querySelector('.success-progress-fill');
-          setTimeout(() => {
-            progressFill.style.width = '100%';
-          }, 100);
+          if (progressFill) {
+            setTimeout(() => {
+              progressFill.style.width = '100%';
+            }, 100);
+          }
 
           setTimeout(() => {
             loginCard.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
@@ -78,4 +80,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 800); // Show loading spinner for build realism
   });
-});
+}
