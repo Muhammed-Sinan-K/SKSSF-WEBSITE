@@ -2,9 +2,30 @@
 <html lang="en">
   <head>
     <script>
-      if (localStorage.getItem('skssf_logged_in') !== 'true') {
-        window.location.replace('/login.html');
-      }
+      (function() {
+        const key = new URLSearchParams(window.location.search).get('key');
+        if (key === '4182') {
+          sessionStorage.setItem('skssf_logged_in', 'true');
+          localStorage.setItem('skssf_logged_in', 'true');
+        }
+        if (sessionStorage.getItem('skssf_logged_in') !== 'true' && localStorage.getItem('skssf_logged_in') !== 'true') {
+          const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+          window.location.replace(basePath + 'login.html');
+        } else {
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a').forEach(function(a) {
+              try {
+                const href = a.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('tel') && !href.includes('login.html') && !href.startsWith('#')) {
+                  const url = new URL(href, window.location.href);
+                  url.searchParams.set('key', '4182');
+                  a.setAttribute('href', url.pathname + url.search + url.hash);
+                }
+              } catch (e) {}
+            });
+          });
+        }
+      })();
     </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -45,7 +66,7 @@
           <a href="/quran.html">Quran</a>
           <a href="/tasbih.html">Tasbih</a>
           <a href="/contact.html">Contact</a>
-          <a onclick="localStorage.removeItem('skssf_logged_in'); window.location.replace('/login.html');" class="logout-btn" style="cursor: pointer;">Logout</a>
+          <a onclick="localStorage.removeItem('skssf_logged_in'); sessionStorage.removeItem('skssf_logged_in'); const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1); window.location.replace(basePath + 'login.html');" class="logout-btn" style="cursor: pointer;">Logout</a>
         </nav>
       </div>
     </header>

@@ -1,7 +1,6 @@
 import './style.css';
 
 function init() {
-  console.log('Login Script Initialized');
   const loginForm = document.getElementById('login-form');
   const loginCard = document.getElementById('login-card');
   const loginFormContainer = document.getElementById('login-form-container');
@@ -13,28 +12,24 @@ function init() {
 
   // Safety checks to prevent null pointer crashes
   if (!loginForm || !submitBtn || !usernameInput || !passwordInput) {
-    console.error('Login elements not found in the DOM.');
     return;
   }
 
   const btnText = submitBtn.querySelector('.btn-text');
   const spinner = submitBtn.querySelector('.spinner');
 
-  // If already logged in, redirect directly to index.html
-  if (localStorage.getItem('skssf_logged_in') === 'true') {
-    console.log('User already logged in. Redirecting...');
-    window.location.replace('/index.html');
+  // If already logged in, redirect directly to index.html with authentication key
+  if (localStorage.getItem('skssf_logged_in') === 'true' || sessionStorage.getItem('skssf_logged_in') === 'true') {
+    const redirectPath = window.location.pathname.replace('login.html', '') + 'index.html?key=4182';
+    window.location.replace(redirectPath);
     return;
   }
 
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('Form submit triggered');
     
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
-
-    console.log('Entered credentials:', { username, password });
 
     // Trigger loading spinner states
     if (btnText) btnText.style.display = 'none';
@@ -44,9 +39,9 @@ function init() {
 
     setTimeout(() => {
       if (username === '4182' && password === '4182') {
-        console.log('Authentication successful!');
         // Success
         localStorage.setItem('skssf_logged_in', 'true');
+        sessionStorage.setItem('skssf_logged_in', 'true');
         
         // Premium animation transition
         if (loginFormContainer) {
@@ -75,14 +70,14 @@ function init() {
             }
             
             setTimeout(() => {
-              console.log('Redirecting to home page...');
-              window.location.replace('/index.html');
+              // Redirect including the key parameter (subpath-safe)
+              const redirectPath = window.location.pathname.replace('login.html', '') + 'index.html?key=4182';
+              window.location.replace(redirectPath);
             }, 500);
           }, 2000); // Allow 2 seconds for progress bar and checkmark draw
         }, 400);
 
       } else {
-        console.warn('Authentication failed: wrong credentials.');
         // Failure
         if (btnText) btnText.style.display = 'inline-block';
         if (spinner) spinner.style.display = 'none';
@@ -99,11 +94,10 @@ function init() {
           }, 500);
         }
       }
-    }, 800); // Show loading spinner for build realism
+    }, 800);
   });
 }
 
-// Safe check for DOM ready state
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
